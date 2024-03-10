@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block 'b1' %}
+<h2>LOGIN PAGE</h2>
+
+<form method="post" action="{% url 'checkadminlogin' %}">
+    {% csrf_token %}
+    <label>Enter Username</label>
+    <input type="text" name="uname" required/>
+
+    <label>Enter Password</label>
+    <input type="password" name="pwd" required/>
+
+    <input type="submit" value="Login">
+    <input type="reset" value="Clear">
+</form>
+
+<div>
+    {% for message in messages %}
+    <h4>{{ message }}</h4>
+    {% endfor %}
+</div>
+{% endblock %}
